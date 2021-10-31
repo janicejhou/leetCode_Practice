@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/**
+*@author : janice_chou
+*@date : 2021/10/31 下午 02:14:25
+**/
 namespace E283_MoveZeroes
 {
-    public class MoveZeroesClass
+    class MoveZeroesClass
     {
+        /// <summary>
+        /// 其他方法
+        /// </summary>
+        /// <param name="nums"></param>
         public void MoveZeroes ( int [ ] nums )
         {
             Object [ ] saveZeros = new Object [ nums.Length ];
@@ -67,6 +75,18 @@ namespace E283_MoveZeroes
                     else
                         continue;
                 }
+
+            }
+        }
+
+        /// <summary>
+        ///  可用氣泡排序法，兩兩相比較
+        /// </summary>
+        /// <param name="nums"></param>
+        public void MoveZeroes2 ( int [ ] nums )
+        {
+            for ( int i = 0 ; i < nums.Length ; i++ )
+            {
 
             }
         }
