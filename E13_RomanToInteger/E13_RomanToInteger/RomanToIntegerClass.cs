@@ -14,23 +14,27 @@ namespace E13_RomanToInteger
     {
         public int RomanToInt ( string s )
         {
-            
+
             // 需依據羅馬字母順序大小做加總，若後一個順序大於前一個，則前一個為負數
             // MDC > 1000+500+100
             // MCD > 1000+(-500)+100
             // MCMXCIV > 1000+(-100)+1000+10+100+-(1)+5
-          
+
             string [ ] sAry = s.Select (a => a.ToString ()).ToArray ();
-            int temp = 0;
+            int [ ] tempList = new int [ sAry.Length ];
             for ( int i = 0 ; i < sAry.Length ; i++ )
             {
-                if ( (sAry [ 0 ] == "I" && sAry [ 1 ] == "V") || sAry [ 0 ] == "I" && sAry [ 1 ] == "X"  || sAry [ 0 ] == "C" && sAry [ 1 ] == "M" )
-                    temp = romanTransInt (sAry [ 1 ]) - romanTransInt (sAry [ 0 ]);
+                // 
+                if ( i == sAry.Length - 1 )
+                    tempList [ i ] = romanTransInt (sAry [ sAry.Length - 1 ]);
+                else if ( romanTransInt (sAry [ i ]) < romanTransInt (sAry [ i + 1 ]) )
+                    tempList [ i ] = -( romanTransInt (sAry [ i ]) );
                 else
-                    temp = temp + romanTransInt (sAry [ i ]);
-
+                    tempList [ i ] = romanTransInt (sAry [ i ]);
             }
-            return temp;
+
+
+            return tempList.Sum ();
 
             int romanTransInt ( string symbol )
             {
