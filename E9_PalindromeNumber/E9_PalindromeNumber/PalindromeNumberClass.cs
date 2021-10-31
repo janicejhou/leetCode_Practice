@@ -25,8 +25,21 @@ namespace E9_PalindromeNumber
 
             //}
 
-            return x < 0 ? false : Enumerable.SequenceEqual (x.ToString ().Select (s => s.ToString ()).ToArray () , 
-                x.ToString ().Select (s => s.ToString ()).Reverse ().ToArray ());
+            //return x < 0 ? false : Enumerable.SequenceEqual (x.ToString ().Select (s => s.ToString ()).ToArray () , 
+            //    x.ToString ().Select (s => s.ToString ()).Reverse ().ToArray ());
+
+            if ( x < 0 )
+            {
+                return false;
+            }
+            int CalculationTemp = x;
+            int temp = 0;
+            while ( CalculationTemp > 0 )
+            {
+                temp = temp * 10 + CalculationTemp % 10;
+                CalculationTemp /= 10;
+            }
+            return x == temp;
 
         }
     }
