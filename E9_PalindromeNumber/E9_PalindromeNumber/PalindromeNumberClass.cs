@@ -14,16 +14,19 @@ namespace E9_PalindromeNumber
     {
         public bool IsPalindrome ( int x )
         {
-            if ( x < 0 )
-                return  false;
-            else 
-            {
-                string nums = x.ToString ();
-                string [] numAray = nums.Select (s => s.ToString ()).ToArray ();
-                string [ ] reverseNumAry = numAray.Reverse ().ToArray();
-                return Enumerable.SequenceEqual(numAray, reverseNumAry);
+            //if ( x < 0 )
+            //    return  false;
+            //else 
+            //{
+            //    string nums = x.ToString ();
+            //    string [] numAray = nums.Select (s => s.ToString ()).ToArray ();
+            //    string [ ] reverseNumAry = numAray.Reverse ().ToArray();
+            //    return Enumerable.SequenceEqual(numAray, reverseNumAry);
 
-            }
+            //}
+
+            return x < 0 ? false : Enumerable.SequenceEqual (x.ToString ().Select (s => s.ToString ()).ToArray () , 
+                x.ToString ().Select (s => s.ToString ()).Reverse ().ToArray ());
 
         }
     }
