@@ -85,6 +85,8 @@ namespace leetCode_Practice.E283_MoveZeroes
         /// <param name="nums"></param>
         public void MoveZeroes2 ( int [ ] nums )
         {
+            // 14031 > 14310
+            
             for ( int i = 0 ; i < nums.Length ; i++ )
             {
                 if ( nums [ i ] == 0 )
