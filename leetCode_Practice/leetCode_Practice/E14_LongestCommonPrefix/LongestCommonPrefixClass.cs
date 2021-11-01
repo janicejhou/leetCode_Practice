@@ -32,7 +32,6 @@ namespace leetCode_Practice.E14_LongestCommonPrefix
 
             // 從所有組字串中，以字串數量最少的為主
             var min = eachStrPrefix.Select (s => s.Length).Min ();
-
             for ( int j = 0 ; j < min ; j++ )
             {
 
@@ -46,7 +45,7 @@ namespace leetCode_Practice.E14_LongestCommonPrefix
                 {
                     if ( sTemp [ i ] != sTemp [ 0 ] )
                     {
-                        if ( samePrefix != null)
+                        if ( samePrefix != null )
                             return samePrefix;
                         else
                             return samePrefix = "";
@@ -57,9 +56,27 @@ namespace leetCode_Practice.E14_LongestCommonPrefix
                 samePrefix = samePrefix + first;
 
             }
-
             return samePrefix;
+
         }
 
+        /// <summary>
+        ///  Leetcode官方解答 - 原Java code
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public string LongestCommonPrefix2 ( string [ ] strs )
+        {
+            
+            if ( strs.Count() == 0 ) return "";
+            String prefix = strs [ 0 ];
+            for ( int i = 1 ; i < strs.Count() ; i++ )
+                while ( strs [ i ].IndexOf (prefix) != 0 )
+                {
+                    prefix = prefix.Substring (0 , prefix.Count() - 1);
+                    if ( string.IsNullOrEmpty(prefix) ) return "";
+                }
+            return prefix;
+        }
     }
 }
